@@ -1,4 +1,4 @@
-# Zentive CMS
+# CMS
 
 Internal content management system for the Zentive marketing site (built by
 Xtranet Communications Limited). Lets non-technical team members manage FAQs,
