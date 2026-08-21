@@ -76,11 +76,11 @@ Everything else lives under `/api/v1/admin/*`, behind Sanctum auth.
 
 ## Roadmap
 
-- [ ] Wire the marketing site (`zentive` repo) to actually fetch from the
+- [x] Wire the marketing site (`zentive` repo) to actually fetch from the
       four public endpoints above, replacing its hardcoded content arrays.
-- [ ] Add a testimonials section to the marketing site once there are real
+- [x] Add a testimonials section to the marketing site once there are real
       pilot-client testimonials to feature — the CMS side is ready now.
-- [ ] Security headers (CSP/HSTS/X-Frame-Options) on the admin frontend,
+- [x] Security headers (CSP/HSTS/X-Frame-Options) on the admin frontend,
       matching what's on the marketing site.
 - [ ] Role-based access — currently any authenticated user has full admin
       access; there's no distinction between roles yet.
