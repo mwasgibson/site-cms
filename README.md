@@ -20,16 +20,16 @@ integration hasn't been built yet (see [Roadmap](#roadmap)).
 
 ```image
 ┌─────────────────┐         ┌──────────────────┐         ┌─────────────────┐
-│  Next.js admin    │  HTTP   │  Laravel API      │         │  MySQL/SQLite     │
-│  (frontend/)       │ ──────▶ │  (backend)│ ──────▶ │  database          │
-│  content editors    │◀──────  │  Sanctum auth       │         │                    │
+│  Next.js admin  │  HTTP   │  Laravel API     │         │  MySQL/SQLite   │
+│  (frontend/)    │ ──────▶ │  (backend).      │ ──────▶ │  database       │
+│  content editors│◀──────  │  Sanctum auth    │         │                 │
 └─────────────────┘         └──────────────────┘         └─────────────────┘
                                        │
                                        │ (not yet wired up)
                                        ▼
                               ┌──────────────────┐
-                              │  zentive marketing │
-                              │  site (Next.js)      │
+                              │zentive marketing │
+                              │  site (Next.js)  │
                               └──────────────────┘
 ```
 
