@@ -265,10 +265,13 @@ export default function PageContentPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    apiFetch<PageContent>("/api/v1/admin/page-content").then((data) => {
-      setPage(data);
-      setLoading(false);
-    });
+    apiFetch<PageContent>("/api/v1/admin/page-content")
+      .then((data) => {
+        // Merge defaults with API data to prevent missing keys
+        setPage((prev) => ({ ...prev, ...data }));
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, []);
 
   const { save, savingKey, savedKey, errorKey } = useSectionSave(page, setPage);
