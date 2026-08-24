@@ -2,6 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-slate-50 text-slate-900;
+@layer base {
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 2px solid #9C4A10;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Shared form field styling — every text/select/textarea input in the
+     admin uses this, so restyling the brand later means editing one place,
+     not every page. */
+  .field-label {
+    @apply block text-sm font-medium text-ink;
+  }
+  .field-input {
+    @apply mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-ink
+      transition duration-fast placeholder:text-muted/60
+      focus:border-ink focus:outline-none focus:ring-1 focus:ring-ink;
+  }
+  .field-hint {
+    @apply mt-1 block text-xs text-muted;
+  }
+
+  .btn-primary {
+    @apply rounded-md bg-ink px-4 py-2 text-sm font-semibold text-paper transition duration-fast
+      hover:bg-signal-dark active:scale-[0.98]
+      disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply rounded-md border border-ink/20 px-4 py-2 text-sm font-semibold text-ink transition duration-fast
+      hover:border-ink active:scale-[0.98]
+      disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-danger-text {
+    @apply text-sm font-medium text-red-700 transition duration-fast hover:underline;
+  }
+
+  .panel {
+    @apply rounded-lg border border-border bg-surface;
+  }
+
+  .status-error {
+    @apply rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700;
+  }
+  .status-saved {
+    @apply text-xs text-wire;
+  }
 }

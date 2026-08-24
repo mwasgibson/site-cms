@@ -58,7 +58,7 @@ export default function EditBlogPostPage() {
   }
   return (
     <div>
-      <h1 className="text-lg font-semibold text-slate-900">Edit blog post</h1>
+      <h1 className="text-lg font-semibold text-ink">Edit blog post</h1>
       <div className="mt-6">
         {initialValues ? (
           <BlogPostForm
@@ -67,7 +67,7 @@ export default function EditBlogPostPage() {
             submitLabel="Save changes"
           />
         ) : (
-          <p className="text-sm text-slate-500">Loading…</p>
+          <p className="field-hint">Loading…</p>
         )}
       </div>
     </div>

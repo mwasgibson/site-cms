@@ -14,7 +14,7 @@ export default function NewFaqPage() {
 
   return (
     <div>
-      <h1 className="text-lg font-semibold text-slate-900">New FAQ</h1>
+      <h1 className="text-lg font-semibold text-ink">New FAQ</h1>
       <div className="mt-6">
         <FaqForm onSubmit={handleSubmit} submitLabel="Create FAQ" />
       </div>

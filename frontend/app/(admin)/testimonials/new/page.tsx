@@ -20,7 +20,7 @@ export default function NewTestimonialPage() {
 
   return (
     <div>
-      <h1 className="text-lg font-semibold text-slate-900">New testimonial</h1>
+      <h1 className="text-lg font-semibold text-ink">New testimonial</h1>
       <div className="mt-6">
         <TestimonialForm
           onSubmit={handleSubmit}

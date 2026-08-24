@@ -32,41 +32,41 @@ export default function TestimonialsPage() {
     <div>
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-semibold text-slate-900">Testimonials</h1>
+          <h1 className="text-lg font-semibold text-ink">Testimonials</h1>
         </div>
         <Link
           href="/testimonials/new"
-          className="shrink-0 rounded-md bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white"
+          className="shrink-0 btn-primary"
         >
           New testimonial
         </Link>
       </div>
 
       {items === null && (
-        <p className="mt-6 text-sm text-slate-500">Loading…</p>
+        <p className="mt-6 field-hint">Loading…</p>
       )}
       {items?.length === 0 && (
-        <p className="mt-6 text-sm text-slate-500">None yet.</p>
+        <p className="mt-6 field-hint">None yet.</p>
       )}
 
-      <ul className="mt-6 divide-y divide-slate-200 rounded-lg border bg-white">
+      <ul className="mt-6 divide-y divide-border panel">
         {items?.map((t) => (
           <li
             key={t.id}
             className="flex items-center justify-between gap-4 px-4 py-3"
           >
             <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-slate-900">
+              <p className="truncate text-sm font-medium text-ink">
                 {t.client_name}
               </p>
-              <p className="mt-0.5 text-xs text-slate-400">
+              <p className="mt-0.5 field-hint">
                 {t.client_org ?? "—"} · {t.is_published ? "published" : "draft"}
               </p>
             </div>
             <div className="flex shrink-0 gap-3 text-sm">
               <Link
                 href={`/testimonials/${t.id}`}
-                className="text-slate-600 hover:underline"
+                className="text-muted hover:text-ink hover:underline"
               >
                 Edit
               </Link>

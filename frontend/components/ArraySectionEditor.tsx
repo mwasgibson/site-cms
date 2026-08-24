@@ -58,9 +58,9 @@ export function ArraySectionEditor({
   return (
     <div className="space-y-4">
       {items.map((item, index) => (
-        <div key={index} className="rounded-md border border-slate-200 p-4">
+        <div key={index} className="panel p-4">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted">
               {itemLabel} {index + 1}
             </p>
             <div className="flex gap-2 text-xs">
@@ -68,7 +68,7 @@ export function ArraySectionEditor({
                 type="button"
                 onClick={() => moveItem(index, -1)}
                 disabled={index === 0}
-                className="text-slate-500 hover:underline disabled:opacity-30"
+                className="text-muted hover:text-ink hover:underline disabled:opacity-30"
               >
                 ↑
               </button>
@@ -76,7 +76,7 @@ export function ArraySectionEditor({
                 type="button"
                 onClick={() => moveItem(index, 1)}
                 disabled={index === items.length - 1}
-                className="text-slate-500 hover:underline disabled:opacity-30"
+                className="text-muted hover:text-ink hover:underline disabled:opacity-30"
               >
                 ↓
               </button>
@@ -92,14 +92,14 @@ export function ArraySectionEditor({
 
           <div className="mt-3 space-y-3">
             {fields.map((field) => (
-              <label key={field.key} className="block text-sm font-medium text-slate-700">
+              <label key={field.key} className="field-label">
                 {field.label}
                 {field.type === "textarea" && (
                   <textarea
                     rows={3}
                     value={(item[field.key] as string) ?? ""}
                     onChange={(e) => updateItem(index, field.key, e.target.value)}
-                    className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+                    className="field-input"
                   />
                 )}
                 {field.type === "lines" && (
@@ -114,16 +114,16 @@ export function ArraySectionEditor({
                           e.target.value.split("\n").filter((line) => line.trim() !== ""),
                         )
                       }
-                      className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+                      className="field-input"
                     />
-                    <span className="mt-1 block text-xs text-slate-400">One per line.</span>
+                    <span className="field-hint">One per line.</span>
                   </>
                 )}
                 {field.type === "select" && (
                   <select
                     value={(item[field.key] as string) ?? ""}
                     onChange={(e) => updateItem(index, field.key, e.target.value)}
-                    className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+                    className="field-input"
                   >
                     {field.options?.map((opt) => (
                       <option key={opt} value={opt}>
@@ -137,7 +137,7 @@ export function ArraySectionEditor({
                     value={(item[field.key] as string) ?? ""}
                     onChange={(e) => updateItem(index, field.key, e.target.value)}
                     placeholder={field.placeholder}
-                    className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+                    className="field-input"
                   />
                 )}
               </label>
@@ -149,7 +149,7 @@ export function ArraySectionEditor({
       <button
         type="button"
         onClick={() => onChange([...items, newItem()])}
-        className="rounded-md border border-dashed border-slate-300 px-3 py-1.5 text-sm text-slate-600 hover:border-slate-400"
+        className="rounded-md border border-dashed border-border px-3 py-1.5 text-sm text-muted transition duration-fast hover:border-ink/40"
       >
         + Add {itemLabel.toLowerCase()}
       </button>

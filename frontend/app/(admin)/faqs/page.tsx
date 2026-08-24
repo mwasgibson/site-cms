@@ -32,32 +32,27 @@ export default function FaqsPage() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold text-slate-900">FAQs</h1>
-        <Link
-          href="/faqs/new"
-          className="rounded-md bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white"
-        >
+        <h1 className="text-lg font-semibold text-ink">FAQs</h1>
+        <Link href="/faqs/new" className="btn-primary">
           New FAQ
         </Link>
       </div>
 
-      {faqs === null && <p className="mt-6 text-sm text-slate-500">Loading…</p>}
+      {faqs === null && <p className="mt-6 field-hint">Loading…</p>}
 
-      {faqs?.length === 0 && (
-        <p className="mt-6 text-sm text-slate-500">No FAQs yet.</p>
-      )}
+      {faqs?.length === 0 && <p className="mt-6 field-hint">No FAQs yet.</p>}
 
-      <ul className="mt-6 divide-y divide-slate-200 rounded-lg border bg-white">
+      <ul className="mt-6 flex flex-col gap-4">
         {faqs?.map((faq) => (
           <li
             key={faq.id}
-            className="flex items-center justify-between gap-4 px-4 py-3"
+            className="flex items-center justify-between gap-4 px-4 py-3 bg-white border border-border rounded-lg"
           >
             <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-slate-900">
+              <p className="truncate text-sm font-medium text-ink">
                 {faq.question}
               </p>
-              <p className="mt-0.5 text-xs text-slate-400">
+              <p className="mt-0.5 field-hint">
                 order {faq.sort_order} ·{" "}
                 {faq.is_published ? "published" : "draft"}
               </p>
@@ -65,7 +60,7 @@ export default function FaqsPage() {
             <div className="flex shrink-0 gap-3 text-sm">
               <Link
                 href={`/faqs/${faq.id}`}
-                className="text-slate-600 hover:underline"
+                className="text-muted hover:text-ink hover:underline"
               >
                 Edit
               </Link>

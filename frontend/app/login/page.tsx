@@ -30,10 +30,10 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm rounded-lg border bg-white p-8"
+        className="w-full max-w-sm rounded-lg border border-border bg-surface p-8"
       >
-        <h1 className="text-lg font-semibold text-slate-900">CMS</h1>
-        <p className="mt-1 text-sm text-slate-500">
+        <h1 className="text-lg font-semibold text-ink">CMS</h1>
+        <p className="mt-1 field-hint">
           Sign in to manage site content.
         </p>
 
@@ -43,32 +43,32 @@ export default function LoginPage() {
           </p>
         )}
 
-        <label className="mt-6 block text-sm font-medium text-slate-700">
+        <label className="mt-6 field-label">
           Email
           <input
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="field-input"
           />
         </label>
 
-        <label className="mt-4 block text-sm font-medium text-slate-700">
+        <label className="mt-4 field-label">
           Password
           <input
             type="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="field-input"
           />
         </label>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-6 w-full rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+          className="mt-6 w-full btn-primary"
         >
           {isSubmitting ? "Signing in…" : "Sign in"}
         </button>

@@ -31,40 +31,40 @@ export default function BlogPostsPage() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold text-slate-900">Blog posts</h1>
+        <h1 className="text-lg font-semibold text-ink">Blog posts</h1>
         <Link
           href="/blog-posts/new"
-          className="rounded-md bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white"
+          className="btn-primary"
         >
           New post
         </Link>
       </div>
 
       {posts === null && (
-        <p className="mt-6 text-sm text-slate-500">Loading…</p>
+        <p className="mt-6 field-hint">Loading…</p>
       )}
       {posts?.length === 0 && (
-        <p className="mt-6 text-sm text-slate-500">No posts yet.</p>
+        <p className="mt-6 field-hint">No posts yet.</p>
       )}
 
-      <ul className="mt-6 divide-y divide-slate-200 rounded-lg border bg-white">
+      <ul className="mt-6 divide-y divide-border panel">
         {posts?.map((post) => (
           <li
             key={post.id}
             className="flex items-center justify-between gap-4 px-4 py-3"
           >
             <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-slate-900">
+              <p className="truncate text-sm font-medium text-ink">
                 {post.title}
               </p>
-              <p className="mt-0.5 text-xs text-slate-400">
+              <p className="mt-0.5 field-hint">
                 /{post.slug} · {post.published_at ? "published" : "draft"}
               </p>
             </div>
             <div className="flex shrink-0 gap-3 text-sm">
               <Link
                 href={`/blog-posts/${post.id}`}
-                className="text-slate-600 hover:underline"
+                className="text-muted hover:text-ink hover:underline"
               >
                 Edit
               </Link>

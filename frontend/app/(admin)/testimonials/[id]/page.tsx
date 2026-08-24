@@ -30,7 +30,7 @@ export default function EditTestimonialPage() {
 
   return (
     <div>
-      <h1 className="text-lg font-semibold text-slate-900">Edit testimonial</h1>
+      <h1 className="text-lg font-semibold text-ink">Edit testimonial</h1>
       <div className="mt-6">
         {initialValues ? (
           <TestimonialForm
@@ -39,7 +39,7 @@ export default function EditTestimonialPage() {
             submitLabel="Save changes"
           />
         ) : (
-          <p className="text-sm text-slate-500">Loading…</p>
+          <p className="field-hint">Loading…</p>
         )}
       </div>
     </div>

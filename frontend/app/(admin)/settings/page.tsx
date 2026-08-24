@@ -94,11 +94,11 @@ export default function SettingsPage() {
     }
   }
 
-  if (!values) return <p className="text-sm text-slate-500">Loading…</p>;
+  if (!values) return <p className="field-hint">Loading…</p>;
 
   return (
     <div>
-      <h1 className="text-lg font-semibold text-slate-900">Site settings</h1>
+      <h1 className="text-lg font-semibold text-ink">Site settings</h1>
 
       <form onSubmit={handleSubmit} className="mt-6 max-w-2xl space-y-8">
         {error && (
@@ -110,16 +110,16 @@ export default function SettingsPage() {
         {FIELD_GROUPS.map((group) => (
           <fieldset
             key={group.title}
-            className="rounded-md border border-slate-200 p-4"
+            className="panel p-4"
           >
-            <legend className="px-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <legend className="px-1 text-xs font-semibold uppercase tracking-wide text-muted">
               {group.title}
             </legend>
             <div className="space-y-3">
               {group.fields.map((field) => (
                 <label
                   key={field.key}
-                  className="block text-sm font-medium text-slate-700"
+                  className="field-label"
                 >
                   {field.label}
                   <input
@@ -127,7 +127,7 @@ export default function SettingsPage() {
                     onChange={(e) =>
                       setValues({ ...values, [field.key]: e.target.value })
                     }
-                    className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+                    className="field-input"
                   />
                 </label>
               ))}
@@ -139,11 +139,11 @@ export default function SettingsPage() {
           <button
             type="submit"
             disabled={isSaving}
-            className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+            className="btn-primary"
           >
             {isSaving ? "Saving…" : "Save settings"}
           </button>
-          {savedAt && <span className="text-xs text-slate-400">Saved.</span>}
+          {savedAt && <span className="field-hint">Saved.</span>}
         </div>
       </form>
     </div>

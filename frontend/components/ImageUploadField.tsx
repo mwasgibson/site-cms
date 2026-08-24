@@ -36,7 +36,7 @@ export function ImageUploadField({
 
   return (
     <div>
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         {label}
       </label>
 
@@ -45,7 +45,7 @@ export function ImageUploadField({
         <img
           src={value}
           alt=""
-          className="mt-2 h-20 w-20 rounded-md border border-slate-200 object-cover"
+          className="mt-2 h-20 w-20 rounded-md border border-border object-cover"
         />
       )}
 
@@ -55,10 +55,10 @@ export function ImageUploadField({
           accept="image/jpeg,image/png,image/webp"
           onChange={handleFileChange}
           disabled={isUploading}
-          className="text-sm text-slate-600"
+          className="text-sm text-muted"
         />
         {isUploading && (
-          <span className="text-xs text-slate-400">Uploading…</span>
+          <span className="field-hint">Uploading…</span>
         )}
         {value && !isUploading && (
           <button

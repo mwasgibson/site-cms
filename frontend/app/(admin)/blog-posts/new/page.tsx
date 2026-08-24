@@ -22,7 +22,7 @@ export default function NewBlogPostPage() {
   }
   return (
     <div>
-      <h1 className="text-lg font-semibold text-slate-900">New blog post</h1>
+      <h1 className="text-lg font-semibold text-ink">New blog post</h1>
       <div className="mt-6">
         <BlogPostForm onSubmit={handleSubmit} submitLabel="Create post" />
       </div>

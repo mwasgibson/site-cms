@@ -63,43 +63,43 @@ export function BlogPostForm({
         </p>
       )}
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Title
         <input
           required
           value={values.title}
           onChange={(e) => setValues({ ...values, title: e.target.value })}
-          className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input"
         />
       </label>
 
       {initialValues && (
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="field-label">
           Slug
           <input
             value={values.slug ?? ""}
             onChange={(e) => setValues({ ...values, slug: e.target.value })}
-            className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm font-mono"
+            className="field-input font-mono"
           />
-          <span className="mt-1 block text-xs text-slate-400">
+          <span className="field-hint">
             Changing this breaks any existing links to the post.
           </span>
         </label>
       )}
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Excerpt
         <textarea
           rows={2}
           maxLength={320}
           value={values.excerpt}
           onChange={(e) => setValues({ ...values, excerpt: e.target.value })}
-          className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input"
         />
       </label>
 
       <div>
-        <label className="block text-sm font-medium text-slate-700">Body</label>
+        <label className="field-label">Body</label>
         <div className="mt-1">
           <RichTextEditor
             value={values.body}
@@ -114,21 +114,21 @@ export function BlogPostForm({
         onChange={(url) => setValues({ ...values, cover_image_url: url })}
       />
 
-      <fieldset className="rounded-md border border-slate-200 p-4">
-        <legend className="px-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+      <fieldset className="panel p-4">
+        <legend className="px-1 text-xs font-semibold uppercase tracking-wide text-muted">
           SEO
         </legend>
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="field-label">
           SEO title
           <input
             value={values.seo_title}
             onChange={(e) =>
               setValues({ ...values, seo_title: e.target.value })
             }
-            className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="field-input"
           />
         </label>
-        <label className="mt-3 block text-sm font-medium text-slate-700">
+        <label className="mt-3 field-label">
           SEO description
           <textarea
             rows={2}
@@ -137,12 +137,12 @@ export function BlogPostForm({
             onChange={(e) =>
               setValues({ ...values, seo_description: e.target.value })
             }
-            className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="field-input"
           />
         </label>
       </fieldset>
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Published at
         <input
           type="datetime-local"
@@ -150,9 +150,9 @@ export function BlogPostForm({
           onChange={(e) =>
             setValues({ ...values, published_at: e.target.value })
           }
-          className="mt-1 w-64 rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input w-64"
         />
-        <span className="mt-1 block text-xs text-slate-400">
+        <span className="field-hint">
           Leave blank to save as a draft — it won&apos;t appear on the public
           endpoint.
         </span>
@@ -161,7 +161,7 @@ export function BlogPostForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+        className="btn-primary"
       >
         {isSubmitting ? "Saving…" : submitLabel}
       </button>

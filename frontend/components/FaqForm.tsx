@@ -54,28 +54,28 @@ export function FaqForm({
         </p>
       )}
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Question
         <input
           required
           value={values.question}
           onChange={(e) => setValues({ ...values, question: e.target.value })}
-          className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input"
         />
       </label>
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Answer
         <textarea
           required
           rows={5}
           value={values.answer}
           onChange={(e) => setValues({ ...values, answer: e.target.value })}
-          className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input"
         />
       </label>
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Sort order
         <input
           type="number"
@@ -84,11 +84,11 @@ export function FaqForm({
           onChange={(e) =>
             setValues({ ...values, sort_order: Number(e.target.value) })
           }
-          className="mt-1 w-32 rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input w-32"
         />
       </label>
 
-      <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
+      <label className="field-label flex items-center gap-2">
         <input
           type="checkbox"
           checked={values.is_published}
@@ -102,7 +102,7 @@ export function FaqForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+        className="btn-primary"
       >
         {isSubmitting ? "Saving…" : submitLabel}
       </button>

@@ -61,7 +61,7 @@ export function TestimonialForm({
         </p>
       )}
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Client name
         <input
           required
@@ -69,41 +69,41 @@ export function TestimonialForm({
           onChange={(e) =>
             setValues({ ...values, client_name: e.target.value })
           }
-          className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input"
         />
       </label>
 
       <div className="grid grid-cols-2 gap-4">
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="field-label">
           Role
           <input
             value={values.client_role}
             onChange={(e) =>
               setValues({ ...values, client_role: e.target.value })
             }
-            className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="field-input"
           />
         </label>
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="field-label">
           Organization
           <input
             value={values.client_org}
             onChange={(e) =>
               setValues({ ...values, client_org: e.target.value })
             }
-            className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="field-input"
           />
         </label>
       </div>
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Quote
         <textarea
           required
           rows={4}
           value={values.quote}
           onChange={(e) => setValues({ ...values, quote: e.target.value })}
-          className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input"
         />
       </label>
 
@@ -113,7 +113,7 @@ export function TestimonialForm({
         onChange={(url) => setValues({ ...values, logo_url: url })}
       />
 
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="field-label">
         Sort order
         <input
           type="number"
@@ -122,11 +122,11 @@ export function TestimonialForm({
           onChange={(e) =>
             setValues({ ...values, sort_order: Number(e.target.value) })
           }
-          className="mt-1 w-32 rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="field-input w-32"
         />
       </label>
 
-      <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
+      <label className="field-label flex items-center gap-2">
         <input
           type="checkbox"
           checked={values.is_published}
@@ -140,7 +140,7 @@ export function TestimonialForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+        className="btn-primary"
       >
         {isSubmitting ? "Saving…" : submitLabel}
       </button>

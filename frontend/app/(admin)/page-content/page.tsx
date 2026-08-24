@@ -134,18 +134,16 @@ function SaveBar({
   errorKey: { key: string; message: string } | null;
 }) {
   return (
-    <div className="mt-4 flex items-center gap-3 border-t border-slate-200 pt-4">
+    <div className="mt-4 flex items-center gap-3 border-t border-border pt-4">
       <button
         type="button"
         onClick={onSave}
         disabled={savingKey === sectionKey}
-        className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+        className="btn-primary"
       >
         {savingKey === sectionKey ? "Saving…" : "Save section"}
       </button>
-      {savedKey === sectionKey && (
-        <span className="text-xs text-slate-400">Saved.</span>
-      )}
+      {savedKey === sectionKey && <span className="field-hint">Saved.</span>}
       {errorKey?.key === sectionKey && (
         <span className="text-xs text-red-600">{errorKey.message}</span>
       )}
@@ -163,12 +161,12 @@ function TextField({
   onChange: (v: string) => void;
 }) {
   return (
-    <label className="block text-sm font-medium text-slate-700">
+    <label className="field-label">
       {label}
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+        className="field-input"
       />
     </label>
   );
@@ -186,13 +184,13 @@ function TextareaField({
   rows?: number;
 }) {
   return (
-    <label className="block text-sm font-medium text-slate-700">
+    <label className="field-label">
       {label}
       <textarea
         rows={rows}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+        className="field-input"
       />
     </label>
   );
@@ -276,23 +274,19 @@ export default function PageContentPage() {
 
   const { save, savingKey, savedKey, errorKey } = useSectionSave(page, setPage);
 
-  if (loading) return <p className="text-sm text-slate-500">Loading…</p>;
+  if (loading) return <p className="field-hint">Loading…</p>;
 
   return (
     <div>
-      <h1 className="text-lg font-semibold text-slate-900">Page content</h1>
-      <p className="mt-1 max-w-2xl text-xs text-slate-400">
-        Edits the marketing homepage&apos;s Hero, Platform, Security, Glossary,
-        How It Works, Engineering, Stats, Use Cases, and Final CTA sections. The
-        header/nav and footer aren&apos;t covered here — nav labels are tied to
-        in-page anchor links, and footer content already comes from Site
-        Settings. Each section below saves independently.
-      </p>
+      <h1 className="text-lg font-semibold text-ink">Page content</h1>
 
-      <div className="mt-8 space-y-4 max-w-2xl">
+      <div className="mt-8 space-y-4 max-w-none">
         {/* HERO */}
-        <details className="rounded-lg border bg-white p-5" open>
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details
+          className="rounded-lg border border-border bg-surface p-5"
+          open
+        >
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             Hero
           </summary>
           <div className="mt-4 space-y-3">
@@ -370,7 +364,7 @@ export default function PageContentPage() {
                 }
               />
             </div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted">
               Trust stats
             </p>
             <ArraySectionEditor
@@ -402,8 +396,8 @@ export default function PageContentPage() {
         </details>
 
         {/* FEATURES */}
-        <details className="rounded-lg border bg-white p-5">
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details className="rounded-lg border border-border bg-surface p-5">
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             Platform / Features
           </summary>
           <div className="mt-4 space-y-3">
@@ -443,8 +437,8 @@ export default function PageContentPage() {
         </details>
 
         {/* SECURITY */}
-        <details className="rounded-lg border bg-white p-5">
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details className="rounded-lg border border-border bg-surface p-5">
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             Security &amp; Compliance
           </summary>
           <div className="mt-4 space-y-3">
@@ -484,8 +478,8 @@ export default function PageContentPage() {
         </details>
 
         {/* GLOSSARY */}
-        <details className="rounded-lg border bg-white p-5">
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details className="rounded-lg border border-border bg-surface p-5">
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             Glossary (&ldquo;In plain terms&rdquo;)
           </summary>
           <div className="mt-4">
@@ -512,8 +506,8 @@ export default function PageContentPage() {
         </details>
 
         {/* HOW IT WORKS */}
-        <details className="rounded-lg border bg-white p-5">
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details className="rounded-lg border border-border bg-surface p-5">
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             How It Works
           </summary>
           <div className="mt-4 space-y-3">
@@ -563,8 +557,8 @@ export default function PageContentPage() {
         </details>
 
         {/* ENGINEERING */}
-        <details className="rounded-lg border bg-white p-5">
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details className="rounded-lg border border-border bg-surface p-5">
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             For Engineering Teams
           </summary>
           <div className="mt-4 space-y-3">
@@ -578,7 +572,7 @@ export default function PageContentPage() {
                 }))
               }
             />
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="field-label">
               Bullets
               <textarea
                 rows={4}
@@ -594,11 +588,9 @@ export default function PageContentPage() {
                     },
                   }))
                 }
-                className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+                className="field-input"
               />
-              <span className="mt-1 block text-xs text-slate-400">
-                One per line.
-              </span>
+              <span className="field-hint">One per line.</span>
             </label>
             <TextField
               label="CTA label"
@@ -610,7 +602,7 @@ export default function PageContentPage() {
                 }))
               }
             />
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted">
               API endpoints table
             </p>
             <ArraySectionEditor
@@ -639,8 +631,8 @@ export default function PageContentPage() {
         </details>
 
         {/* STATS */}
-        <details className="rounded-lg border bg-white p-5">
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details className="rounded-lg border border-border bg-surface p-5">
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             By The Numbers
           </summary>
           <div className="mt-4">
@@ -667,8 +659,8 @@ export default function PageContentPage() {
         </details>
 
         {/* USE CASES */}
-        <details className="rounded-lg border bg-white p-5">
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details className="rounded-lg border border-border bg-surface p-5">
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             Use Cases
           </summary>
           <div className="mt-4 space-y-3">
@@ -718,8 +710,8 @@ export default function PageContentPage() {
         </details>
 
         {/* FINAL CTA */}
-        <details className="rounded-lg border bg-white p-5">
-          <summary className="cursor-pointer font-display text-base font-semibold text-slate-900">
+        <details className="rounded-lg border border-border bg-surface p-5">
+          <summary className="cursor-pointer font-display text-base font-semibold text-ink">
             Final CTA
           </summary>
           <div className="mt-4 space-y-3">

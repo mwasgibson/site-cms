@@ -31,7 +31,7 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
   if (!editor) return null;
 
   return (
-    <div className="rounded-md border border-slate-300">
+    <div className="field-input">
       <Toolbar editor={editor} />
       <EditorContent editor={editor} />
     </div>
@@ -98,7 +98,7 @@ function Toolbar({
   }
 
   return (
-    <div className="flex flex-wrap gap-1 border-b border-slate-200 bg-slate-50 p-1.5">
+    <div className="flex flex-wrap gap-1 border-b border-border bg-paper p-1.5">
       {buttons.map((btn) => (
         <button
           key={btn.label}
@@ -106,8 +106,8 @@ function Toolbar({
           onClick={btn.onClick}
           className={`rounded px-2 py-1 text-xs font-medium ${
             btn.isActive
-              ? "bg-slate-900 text-white"
-              : "text-slate-600 hover:bg-slate-200"
+              ? "bg-ink text-paper"
+              : "text-muted transition duration-fast hover:bg-paper hover:text-ink"
           }`}
         >
           {btn.label}
@@ -118,8 +118,8 @@ function Toolbar({
         onClick={handleLink}
         className={`rounded px-2 py-1 text-xs font-medium ${
           editor.isActive("link")
-            ? "bg-slate-900 text-white"
-            : "text-slate-600 hover:bg-slate-200"
+            ? "bg-ink text-paper"
+            : "text-muted transition duration-fast hover:bg-paper hover:text-ink"
         }`}
       >
         link

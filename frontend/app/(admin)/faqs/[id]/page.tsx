@@ -28,7 +28,7 @@ export default function EditFaqPage() {
 
   return (
     <div>
-      <h1 className="text-lg font-semibold text-slate-900">Edit FAQ</h1>
+      <h1 className="text-lg font-semibold text-ink">Edit FAQ</h1>
       <div className="mt-6">
         {initialValues ? (
           <FaqForm
@@ -37,7 +37,7 @@ export default function EditFaqPage() {
             submitLabel="Save changes"
           />
         ) : (
-          <p className="text-sm text-slate-500">Loading…</p>
+          <p className="field-hint">Loading…</p>
         )}
       </div>
     </div>
